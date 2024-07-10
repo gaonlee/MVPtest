@@ -1,0 +1,33 @@
+/* Login.css and Register.css */
+.content {
+    margin-top: 80px; /* Header 아래에 충분한 공간을 확보합니다 */
+  }
+  
+  .custom-input {
+    width: 100%;
+    max-width: 600px; /* 입력창의 최대 폭을 600px로 증가 */
+    margin: 0 auto;
+    padding: 10px; /* 입력창의 내부 여백을 추가합니다 */
+    box-sizing: border-box; /* 내부 여백을 포함하여 크기를 계산합니다 */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem; /* 그룹 간 여백을 넓힙니다 */
+  }
+  
+  .form-label {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 0.5rem; /* 라벨과 입력창 사이의 간격을 증가 */
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 600px; /* 버튼의 최대 폭을 600px로 증가 */
+    margin: 10px auto;
+  }
+  

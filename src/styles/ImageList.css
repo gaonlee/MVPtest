@@ -1,0 +1,39 @@
+.image-list-container {
+    padding: 20px;
+  }
+  
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .image-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .image-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .image-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .image-card .card-title {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .image-card .card-text {
+    color: #555;
+  }
+  

@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .header-left, .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .menu-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+  
+  .menu-dropdown {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+  }
+  
+  .home-link img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .profile-link {
+    margin-right: 10px;
+  }
+  

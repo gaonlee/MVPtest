@@ -1,0 +1,17 @@
+/* ImageDetailPage.css */
+
+.content {
+    padding-top: 20px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      padding-top: 0;
+    }
+  }
+  

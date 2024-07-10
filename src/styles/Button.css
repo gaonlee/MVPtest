@@ -1,0 +1,56 @@
+/* Button.css */
+.button {
+  display: inline-block;
+  padding: 10px 20px !important;
+  margin: 10px 5px !important; /* 버튼 간의 간격을 늘리기 위해 margin 수정 */
+  border: none !important;
+  background-color: #007bff !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease, transform 0.2s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  width: 200px !important; /* 버튼의 너비를 줄이기 위해 width 추가 */
+}
+
+.button:hover {
+  background-color: #0056b3 !important;
+  transform: translateY(-2px) !important;
+}
+
+.button:active {
+  background-color: #004085 !important;
+  transform: translateY(1px) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.button-danger {
+  background-color: #dc3545 !important;
+}
+
+.button-danger:hover {
+  background-color: #c82333 !important;
+}
+
+.button-danger:active {
+  background-color: #bd2130 !important;
+}
+
+.button-warning {
+  background-color: #ffc107 !important;
+}
+
+.button-warning:hover {
+  background-color: #e0a800 !important;
+}
+
+.button-warning:active {
+  background-color: #d39e00 !important;
+}
+
+@media (max-width: 600px) {
+  .button {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}

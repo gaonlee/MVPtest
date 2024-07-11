@@ -11,7 +11,7 @@ import pymongo
 from functools import wraps
 import logging
 from flask import send_from_directory
-
+from datetime import datetime
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -117,13 +117,11 @@ def update_image_admin(image_id):
         return jsonify({"error": "Database connection failed"}), 500
 
     data = request.get_json()
-    db.images.update_one(
-        {'_id': ObjectId(image_id)},
-        {'$set': {'interpretation': data['interpretation'], 'title': data.get('title', '')}}
-    )
+    db.images.update_one({'_id': ObjectId(image_id)}, {'$set': {'interpretation': data['interpretation'], 'title': data['title'], 'isNew': False}})
     updated_image = db.images.find_one({'_id': ObjectId(image_id)})
     updated_image['_id'] = str(updated_image['_id'])
     return jsonify(updated_image)
+
 
 @app.route('/images/<image_id>', methods=['GET'])
 @jwt_required()
@@ -241,7 +239,7 @@ def upload_file():
         return jsonify({"error": "Database connection failed"}), 500
 
     current_user = get_jwt_identity()
-    user_id = current_user['username']  # 사용자 이름을 ID로 사용
+    user_id = current_user['username']
 
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
@@ -257,7 +255,9 @@ def upload_file():
             'filename': filename,
             'path': file_path,
             'interpretation': "This is a sample interpretation of the image.",
-            'user_id': user_id  # 사용자 이름을 저장
+            'user_id': user_id,
+            'isNew': True,
+            'uploadTime': datetime.now()  # Add upload time
         }).inserted_id
 
         new_image = db.images.find_one({'_id': image_id})

@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -23,11 +22,11 @@ function Home({ authToken, onLogout, isAdmin }) {
                   이미지 조회
                 </Button>
                 {isAdmin && (
-                  <Button variant="warning" as={Link} to="/admin" className="m-2 button">
+                  <Button variant="warning" as={Link} to="/admin" className="m-2 button button-warning">
                     관리자 페이지
                   </Button>
                 )}
-                <Button variant="danger" onClick={onLogout} className="mx-2 button">
+                <Button variant="danger" onClick={onLogout} className="mx-2 button button-danger">
                   로그아웃
                 </Button>
               </>

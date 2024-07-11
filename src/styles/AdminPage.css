@@ -1,18 +1,72 @@
-.content {
-    padding-top: 70px; /* 헤더 아래에 내용이 오도록 패딩 추가 */
-  }
-  
-  .image-card {
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .image-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card img {
-    height: 200px; /* 이미지 높이 제한 */
-    object-fit: cover;
-  }
-  
+.image-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.image-table th,
+.image-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.image-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.custom-dropdown-toggle {
+  background-color: #007bff !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.custom-dropdown-toggle:hover {
+  background-color: #0056b3 !important;
+}
+
+.custom-dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-dropdown-menu .dropdown-item {
+  padding: 10px 20px;
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+}
+
+.custom-dropdown-menu .dropdown-item:active,
+.custom-dropdown-menu .dropdown-item:focus {
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.custom-dropdown-menu .dropdown-item {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}

@@ -55,7 +55,7 @@ function ImageUpload({ authToken, addImage, handleLogout }) {
   return (
     <div className="upload-container">
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formFile" className="mb-3">
+        <Form.Group className="mb-3">
           <Form.Control type="file" onChange={handleFileChange} style={{ display: 'none' }} id="file-input" />
           <label htmlFor="file-input" className="button">이미지 불러오기</label>
         </Form.Group>

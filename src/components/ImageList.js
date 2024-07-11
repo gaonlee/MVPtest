@@ -1,5 +1,4 @@
-// ImageList.js
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Card, Row, Col, Form, FormControl, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -63,6 +62,7 @@ function ImageList({ authToken }) {
             <Card onClick={() => handleImageClick(image)} style={{ cursor: 'pointer' }}>
               <Card.Img variant="top" src={`http://localhost:5000/uploads/${image.filename}`} />
               <Card.Body>
+                {image.isNew && <span className="badge bg-danger">NEW</span>}
                 <Card.Title>{image.title}</Card.Title>
                 <Card.Text>{image.interpretation}</Card.Text>
               </Card.Body>

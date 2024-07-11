@@ -1,9 +1,9 @@
-// ImageListPage.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Header from './Header';
 import ImageList from './ImageList';
 import '../styles/Button.css';
+import '../styles/ImageListPage.css';
 
 function ImageListPage({ authToken, images }) {
   return (
@@ -13,6 +13,7 @@ function ImageListPage({ authToken, images }) {
         <Row>
           <Col>
             <h2 className="text-center">진료이력 조회</h2>
+            <p className="text-center">요약된 진료이력을 조회하세요</p> {/* 설명 추가 */}
             <ImageList authToken={authToken} images={images} />
           </Col>
         </Row>

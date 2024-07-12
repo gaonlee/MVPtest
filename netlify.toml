@@ -1,6 +1,7 @@
 [build]
-publish = "build"
-command = "npm run build"
+  command = "npm run build"
+  publish = "build"
 
 [build.environment]
-NODE_ENV = "production"
+  NODE_VERSION = "16.13.0"
+  NPM_VERSION = "8.1.0"

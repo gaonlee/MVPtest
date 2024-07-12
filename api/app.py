@@ -338,5 +338,5 @@ def serve(path):
     else:
         return send_from_directory(app.config['UPLOAD_FOLDER'], 'index.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)

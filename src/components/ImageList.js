@@ -12,7 +12,7 @@ function ImageList({ authToken }) {
 
   const fetchImages = useCallback(async () => {
     try {
-      const response = await axios.get('https://pet-medical-histoy-n0uny5i36-mks-projects-119eb587.vercel.app', {
+      const response = await axios.get('https://pet-medical-histoy-mvp.vercel.app/', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }

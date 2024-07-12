@@ -38,7 +38,7 @@ function ImageUpload({ authToken, addImage, handleLogout }) {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('https://pet-medical-histoy-n0uny5i36-mks-projects-119eb587.vercel.app', formData, {
+      const response = await axios.post('https://pet-medical-histoy-mvp.vercel.app/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${authToken}`

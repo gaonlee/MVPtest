@@ -161,7 +161,7 @@ function AdminPage({ authToken }) {
                 <td>
                   <div className="image-container">
                     <Image
-                      src={`http://localhost:5000/uploads/${image.filename}`}
+                      src={`https://pet-medical-histoy-mvp.vercel.app/uploads/${image.filename}`}
                       thumbnail
                       onClick={() => handleImageClick(image.filename)}
                       style={{ cursor: 'pointer' }}

@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG)
 # .env 파일의 환경 변수 로드
 load_dotenv()
 
-app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 CORS(app)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)

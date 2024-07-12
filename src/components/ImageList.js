@@ -12,11 +12,13 @@ function ImageList({ authToken }) {
 
   const fetchImages = useCallback(async () => {
     try {
-      const response = await axios.get('https://pet-medical-histoy-mvp.vercel.app/', {
+      const response = await axios.get('https://pet-medical-histoy-mvp.vercel.app/images', {
         headers: {
           'Authorization': `Bearer ${authToken}`
-        }
+        },
+        withCredentials: true
       });
+      
       setImages(response.data);
     } catch (error) {
       console.error('Error fetching images:', error);

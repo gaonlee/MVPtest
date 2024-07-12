@@ -38,11 +38,12 @@ function ImageUpload({ authToken, addImage, handleLogout }) {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('https://pet-medical-histoy-mvp.vercel.app/', formData, {
+      const response = await axios.post('https://pet-medical-histoy-mvp.vercel.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${authToken}`
         },
+        withCredentials: true
       });
       addImage({ file: selectedFile, interpretation: response.data });
       setUploadStatus('업로드가 완료되었습니다!');

@@ -59,12 +59,13 @@ function ImageDetailPage({ authToken }) {
 
   return (
     <>
-      <Header />
-      <Container className="my-5 content">
-        <Image src={`https://pet-medical-histoy-mvp.vercel.app/uploads/${image.filename}`} fluid />
-        <h2>{image.title}</h2>
-        <p>{image.interpretation}</p>
-        <Button variant="secondary" onClick={handleOpenModal}>수정하기</Button>
+<Header />
+<Container className="my-5 content">
+  <Image src={`https://pet-medical-histoy-mvp.vercel.app/uploads/${image.filename}`} fluid />
+  <h2>{image.title}</h2>
+  <p>{image.interpretation}</p>
+  <Button variant="secondary" onClick={handleOpenModal}>수정하기</Button>
+
 
         <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Header closeButton>

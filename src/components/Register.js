@@ -15,7 +15,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('https://https://pet-medical-histoy-mvp.vercel.app/', { username, password });
+      await axios.post('https://pet-medical-histoy-mvp.vercel.app/register', { username, password }, { withCredentials: true });
       navigate('/login');
     } catch (error) {
       setError('Registration failed');

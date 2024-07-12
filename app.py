@@ -232,6 +232,23 @@ def login():
     else:
         return jsonify({"error": "Invalid username or password"}), 401
 
+@app.route('/profile', methods=['GET'])
+@jwt_required()
+def get_profile():
+    current_user = get_jwt_identity()
+    user = db.users.find_one({"username": current_user['username']})
+
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    user_info = {
+        "username": user['username'],
+        "joinedDate": user['_id'].generation_time  # Assuming ObjectId's generation_time represents the joined date
+    }
+    return jsonify(user_info), 200
+
+
+
 @app.route('/upload', methods=['POST'])
 @jwt_required()
 def upload_file():
@@ -254,7 +271,7 @@ def upload_file():
         image_id = db.images.insert_one({
             'filename': filename,
             'path': file_path,
-            'interpretation': "This is a sample interpretation of the image.",
+            'interpretation': "진료이력 생성 중...",
             'user_id': user_id,
             'isNew': True,
             'uploadTime': datetime.now()  # Add upload time

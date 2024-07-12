@@ -1,7 +1,6 @@
-// Header.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Dropdown } from 'react-bootstrap';
 import './Header.css';
 
 function Header() {
@@ -14,25 +13,26 @@ function Header() {
   return (
     <header className="header">
       <div className="header-left">
-        <Button onClick={toggleMenu} className="menu-button">
+        <Button onClick={toggleMenu} className="menu-button custom-button">
           메뉴
         </Button>
         {showMenu && (
-          <div className="menu-dropdown">
-            <Link to="/upload" onClick={() => setShowMenu(false)}>이미지 업로드</Link>
-            <Link to="/list" onClick={() => setShowMenu(false)}>이미지 조회</Link>
-            <Link to="/admin" onClick={() => setShowMenu(false)}>관리자 페이지</Link>
-          </div>
+          <Dropdown.Menu show className="custom-dropdown-menu">
+            <Dropdown.Item as={Link} to="/upload" onClick={() => setShowMenu(false)}>이미지 업로드</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/list" onClick={() => setShowMenu(false)}>이미지 조회</Dropdown.Item>
+           
+          </Dropdown.Menu>
         )}
       </div>
       <div className="header-center">
         <Link to="/" className="home-link">
-          <img src="https://via.placeholder.com/30" alt="Home" />
+          <img src="/Home_logo.png" alt="Home" className="header-logo" />
         </Link>
+        <div className="header-text">촉촉한코</div>
       </div>
       <div className="header-right">
         <Link to="/profile" className="profile-link">
-          <Button variant="primary">Profile</Button>
+          <Button variant="primary">내 정보</Button>
         </Link>
       </div>
     </header>

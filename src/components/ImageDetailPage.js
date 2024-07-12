@@ -64,16 +64,16 @@ function ImageDetailPage({ authToken }) {
         <Image src={`http://localhost:5000/uploads/${image.filename}`} fluid />
         <h2>{image.title}</h2>
         <p>{image.interpretation}</p>
-        <Button variant="secondary" onClick={handleOpenModal}>Edit</Button>
+        <Button variant="secondary" onClick={handleOpenModal}>수정하기</Button>
 
         <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit Interpretation</Modal.Title>
+            <Modal.Title>내용 수정하기</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
               <Form.Group controlId="interpretation">
-                <Form.Label>Interpretation</Form.Label>
+                <Form.Label>내용</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -84,8 +84,8 @@ function ImageDetailPage({ authToken }) {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-            <Button variant="primary" onClick={handleSaveInterpretation}>Save changes</Button>
+            <Button variant="secondary" onClick={handleCloseModal}>닫기</Button>
+            <Button variant="primary" onClick={handleSaveInterpretation}>수정 완료하기</Button>
           </Modal.Footer>
         </Modal>
       </Container>

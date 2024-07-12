@@ -1,0 +1,19 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 상단 정렬을 위해 flex-start 사용 */
+    height: 100vh;
+    margin-top: 50px; /* 상단 여백 추가 */
+  }
+  
+  .profile-card {
+    width: 300px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: none; /* 애니메이션 효과 제거 */
+  }
+  
+  .profile-card:hover {
+    transform: none; /* 애니메이션 효과 제거 */
+  }
+  

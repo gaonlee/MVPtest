@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
-import { Card, Row, Col, Form, FormControl, Button } from 'react-bootstrap';
+import { Card, Form, FormControl, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Button.css';
+import '../styles/ImageList.css';
 
 function ImageList({ authToken }) {
   const [images, setImages] = useState([]);
@@ -46,32 +47,29 @@ function ImageList({ authToken }) {
   };
 
   return (
-    <div>
-      <Form onSubmit={handleSearch} className="mb-4">
+    <div className="image-list-container">
+      <Form onSubmit={handleSearch} className="form-inline search-form">
         <FormControl
           type="text"
           placeholder="Search images"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <Button type="submit" variant="primary" className="mt-2">Search</Button>
+        <Button type="submit" variant="primary">검색</Button>
       </Form>
-      <Row>
+      <div className="image-list">
         {images && images.length > 0 ? images.map((image, index) => (
-          <Col sm={12} md={6} lg={4} key={index} className="mb-4">
-            <Card onClick={() => handleImageClick(image)} style={{ cursor: 'pointer' }}>
-              <Card.Img variant="top" src={`http://localhost:5000/uploads/${image.filename}`} />
-              <Card.Body>
-                {image.isNew && <span className="badge bg-danger">NEW</span>}
-                <Card.Title>{image.title}</Card.Title>
-                <Card.Text>{image.interpretation}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Card key={index} onClick={() => handleImageClick(image)} className="card">
+            <Card.Img variant="top" src={`http://localhost:5000/uploads/${image.filename}`} />
+            <Card.Body className="card-body">
+              <Card.Title className="card-title">{image.title}</Card.Title>
+              <Card.Text className="card-text">{image.interpretation}</Card.Text>
+            </Card.Body>
+          </Card>
         )) : (
           <p>No images found</p>
         )}
-      </Row>
+      </div>
     </div>
   );
 }

@@ -61,7 +61,7 @@ function ImageDetailPage({ authToken }) {
     <>
 <Header />
 <Container className="my-5 content">
-  <Image src={`https://pet-medical-histoy-mvp.vercel.app/uploads/${image.filename}`} fluid />
+  <Image src={`pet-medical-histoy-7ezi38ruw-mks-projects-119eb587.vercel.app/uploads/${image.filename}`} fluid />
   <h2>{image.title}</h2>
   <p>{image.interpretation}</p>
   <Button variant="secondary" onClick={handleOpenModal}>수정하기</Button>

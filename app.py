@@ -73,24 +73,16 @@ def admin_required(fn):
 def handler():
     api_url = os.getenv('REACT_APP_API_URL')
     if not api_url:
-        return {
-            'statusCode': 500,
-            'body': json.dumps('API URL is not defined in environment variables.')
-        }
+        return jsonify({'error': 'API URL is not defined in environment variables.'}), 500
 
     try:
         response = requests.get(f"{api_url}/endpoint", headers={"Content-Type": "application/json"})
         response.raise_for_status()  # HTTP 오류가 발생하면 예외가 발생합니다.
         data = response.json()
-        return {
-            'statusCode': 200,
-            'body': json.dumps(data)
-        }
+        return jsonify(data), 200
     except requests.exceptions.RequestException as error:
-        return {
-            'statusCode': 500,
-            'body': json.dumps(str(error))
-        }
+        return jsonify({'error': str(error)}), 500
+
 
 @app.route('/admin/users', methods=['GET'])
 @admin_required

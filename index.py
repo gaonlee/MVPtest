@@ -83,6 +83,17 @@ def handler():
     except requests.exceptions.RequestException as error:
         return jsonify({'error': str(error)}), 500
 
+@app.route("/<path:path>", methods=["GET"])
+def static_proxy(path):
+    # Send static files from the build directory
+    return send_from_directory('build', path)
+
+# 기본 핸들러 함수 추가
+def handler(event, context):
+    return {
+        'statusCode': 200,
+        'body': 'Hello from Lambda!'
+    }
 
 @app.route('/admin/users', methods=['GET'])
 @admin_required
@@ -354,5 +365,5 @@ def serve(path):
     else:
         return send_from_directory(app.config['UPLOAD_FOLDER'], 'index.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)

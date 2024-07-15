@@ -13,7 +13,7 @@ import logging
 from flask import send_from_directory
 from datetime import datetime
 import requests
-
+import json
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -69,16 +69,28 @@ def admin_required(fn):
         return fn(*args, **kwargs)
     return wrapper
 
-api_url = os.getenv('REACT_APP_API_URL')
+@app.route("/", methods=["GET", "POST"])
+def handler():
+    api_url = os.getenv('REACT_APP_API_URL')
+    if not api_url:
+        return {
+            'statusCode': 500,
+            'body': json.dumps('API URL is not defined in environment variables.')
+        }
 
-def fetch_data():
     try:
         response = requests.get(f"{api_url}/endpoint", headers={"Content-Type": "application/json"})
         response.raise_for_status()  # HTTP 오류가 발생하면 예외가 발생합니다.
         data = response.json()
-        print(data)
+        return {
+            'statusCode': 200,
+            'body': json.dumps(data)
+        }
     except requests.exceptions.RequestException as error:
-        print(f"Error: {error}")
+        return {
+            'statusCode': 500,
+            'body': json.dumps(str(error))
+        }
 
 @app.route('/admin/users', methods=['GET'])
 @admin_required

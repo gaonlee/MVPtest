@@ -12,6 +12,7 @@ from functools import wraps
 import logging
 from flask import send_from_directory
 from datetime import datetime
+import requests
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -67,6 +68,17 @@ def admin_required(fn):
             return jsonify({"error": "Admin access required"}), 403
         return fn(*args, **kwargs)
     return wrapper
+
+api_url = os.getenv('REACT_APP_API_URL')
+
+def fetch_data():
+    try:
+        response = requests.get(f"{api_url}/endpoint", headers={"Content-Type": "application/json"})
+        response.raise_for_status()  # HTTP 오류가 발생하면 예외가 발생합니다.
+        data = response.json()
+        print(data)
+    except requests.exceptions.RequestException as error:
+        print(f"Error: {error}")
 
 @app.route('/admin/users', methods=['GET'])
 @admin_required

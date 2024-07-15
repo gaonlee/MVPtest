@@ -15,12 +15,14 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('https://pet-medical-histoy-7ezi38ruw-mks-projects-119eb587.vercel.app/register', { username, password }, { withCredentials: true });
+      const apiUrl = process.env.REACT_APP_API_URL;
+      await axios.post(`${apiUrl}/register`, { username, password }, { withCredentials: true });
       navigate('/login');
     } catch (error) {
       setError('Registration failed');
     }
   };
+
 
   return (
     <>

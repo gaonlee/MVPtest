@@ -19,8 +19,9 @@ function Login({ setAuthToken }) {
       return;
     }
     try {
-      const response = await axios.post('http://pet-medical-histoy-7ezi38ruw-mks-projects-119eb587.vercel.app/login', { username, password }, { withCredentials: true });
-
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const response = await axios.post(`${apiUrl}/login`, { username, password }, { withCredentials: true });
+      
       const { access_token, isAdmin } = response.data;
       setAuthToken(access_token, isAdmin);
       localStorage.setItem('token', access_token); // JWT 토큰을 localStorage에 저장

@@ -5,6 +5,8 @@ import { jwtDecode } from 'jwt-decode';
 import '../styles/Button.css';
 import '../styles/ImageUploadPage.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function ImageUpload({ authToken, addImage, handleLogout }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);

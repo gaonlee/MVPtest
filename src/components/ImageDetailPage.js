@@ -5,6 +5,9 @@ import { Container, Image, Form, Button, Modal } from 'react-bootstrap';
 import Header from './Header';
 import '../styles/ImageDetailPage.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
 function ImageDetailPage({ authToken }) {
   const { imageId } = useParams();
   const [image, setImage] = useState(null);
@@ -14,7 +17,7 @@ function ImageDetailPage({ authToken }) {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/images/${imageId}`, {
+        const response = await axios.get(`${apiUrl}/images/${imageId}`, {
           headers: {
             'Authorization': `Bearer ${authToken}`
           }
@@ -39,7 +42,7 @@ function ImageDetailPage({ authToken }) {
 
   const handleSaveInterpretation = async () => {
     try {
-      const response = await axios.put(`http://localhost:5000/images/${imageId}`, {
+      const response = await axios.put(`${apiUrl}/images/${imageId}`, {
         interpretation: newInterpretation
       }, {
         headers: {

@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Button.css';
 import '../styles/ImageList.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
 function ImageList({ authToken }) {
   const [images, setImages] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,7 +15,7 @@ function ImageList({ authToken }) {
 
   const fetchImages = useCallback(async () => {
     try {
-      const response = await axios.get('${apiUrl}/images', {
+      const response = await axios.get(`${apiUrl}/images`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         },
